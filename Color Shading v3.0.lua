@@ -2,7 +2,7 @@
 
 -- Note:
 --    If you whant change the Right Click functionality whit Middle click (like PyxelEdit)
---    just swap the code between two else if statement in line 206 and 210.
+--    just swap the code between two else if statement in line 186 and 190.
 
 
 -- variables -------------------------------------------------------------------------
