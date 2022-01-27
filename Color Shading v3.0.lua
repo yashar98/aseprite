@@ -1,9 +1,19 @@
--- Color Shading v3.0
+-- Color Shading v2.0
+-- Aseprite Script that opens a dynamic palette picker window with relevant color shading options
+-- Written by Dominick John, twitter @dominickjohn
+-- Contributed to by David Capello
+-- https://github.com/dominickjohn/aseprite/
 
--- Note:
---    If you whant change the Right Click functionality whit Middle click (like PyxelEdit)
---    just swap the code between two else if statement in line 186 and 190.
+-- Instructions:
+--    Place this file into the Aseprite scripts folder (File -> Scripts -> Open Scripts Folder)
+--    Run the "Color Shading" script (File -> Scripts -> Color Shading) to open the palette window.
 
+-- Commands:
+--    Base: Clicking on either base color will switch the shading palette to that saved color base.
+--    "Get" Button: Updates base colors using the current foreground and background color and regenerates shading.
+--    Left click: Set clicked color as foreground color.
+--    Right click: Set clicked color as background color.
+--    Middle click: Set clicked color as foreground color and regenerate all shades based on this new color.
 
 -- variables -------------------------------------------------------------------------
 
@@ -185,12 +195,14 @@ local function oneShadesClick(ev)
 
   elseif(ev.button == MouseButton.RIGHT) then
 
-    app.bgColor = ev.color
-
-  elseif(ev.button == MouseButton.MIDDLE) then
     app.fgColor = ev.color
     calculateColors(app.fgColor)
     updateDialogData()
+    
+  elseif(ev.button == MouseButton.MIDDLE) then
+    
+    app.bgColor = ev.color
+
   end
 
 end
